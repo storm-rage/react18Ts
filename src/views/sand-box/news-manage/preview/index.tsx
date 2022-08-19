@@ -1,10 +1,18 @@
 import React, { memo, useEffect, useState } from "react";
 import { PageHeader, Descriptions } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
+import { HeartTwoTone } from "@ant-design/icons";
 import moment from "moment";
 import { getPreview } from "services/news-manage";
+import { patchStarNews } from "services/news";
 
-const NewsPreview = memo(() => {
+interface TProps {
+  id?: number;
+  type?: string;
+}
+
+const NewsPreview = memo((props: TProps) => {
+  const { type } = props;
   const navigate = useNavigate();
   const params: any = useParams();
   const { id } = params;
@@ -12,10 +20,15 @@ const NewsPreview = memo(() => {
   useEffect(() => {
     if (id) {
       getPreview(id).then((res: any) => {
-        setnewsInfo(res);
+        if (props.type) {
+          setnewsInfo({ ...res, view: res.view + 1 });
+          patchStarNews(props.id as number, { view: res.view + 1 });
+        } else {
+          setnewsInfo(res);
+        }
       });
     }
-  }, [id]);
+  }, [id, props]);
   const auditList = ["未审核", "审核中", "已通过", "未通过"];
   const publishList = ["未发布", "待发布", "已上线", "已下线"];
   const colorList = ["black", "orange", "green", "red"];
@@ -67,6 +80,16 @@ const NewsPreview = memo(() => {
       ]
     : [];
 
+  const handleStar = () => {
+    setnewsInfo({
+      ...newsInfo,
+      star: newsInfo.star + 1,
+    });
+    patchStarNews(props.id as number, {
+      star: newsInfo.star + 1,
+    });
+  };
+
   return (
     <div>
       {newsInfo.id && (
@@ -74,7 +97,17 @@ const NewsPreview = memo(() => {
           <PageHeader
             onBack={() => navigate(-1)}
             title={newsInfo.title}
-            subTitle={newsInfo.categoryIdf}
+            subTitle={
+              <div>
+                {newsInfo.category.title}
+                {type && (
+                  <HeartTwoTone
+                    twoToneColor="#eb2f96"
+                    onClick={() => handleStar()}
+                  />
+                )}
+              </div>
+            }
           >
             <Descriptions size="small" column={3}>
               {descriptions.map((desp: any) => (

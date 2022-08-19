@@ -113,7 +113,6 @@ const NewsDraft = memo(() => {
       title: "你确定要删除?",
       icon: <ExclamationCircleOutlined />,
       onOk() {
-        console.log(item);
         dispacth(deleteNewsAction(item.id));
       },
     });

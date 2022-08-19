@@ -6,7 +6,6 @@ import { handelFilterElement, handelEnd } from "@/utils/routersFilter";
 import { deepCopy } from "@/utils/devUtils";
 
 function App() {
-  console.log("first");
   const [rout, setrout] = useState(routes);
   const { routs } = useSelector(
     (state: any) => ({ routs: state.login.routes }),

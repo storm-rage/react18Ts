@@ -30,6 +30,14 @@ const defaulyRoutes: any = [
     ],
   },
   {
+    path: "/news",
+    element: lazyLoad("news"),
+  },
+  {
+    path: "/news/detail/:id",
+    element: lazyLoad("news/detail"),
+  },
+  {
     path: "*",
     element: lazyLoad("not-found"),
   },

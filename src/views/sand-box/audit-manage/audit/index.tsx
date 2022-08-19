@@ -61,9 +61,7 @@ const Audit = memo(() => {
   };
 
   useEffect(() => {
-    if (aduitList.size === 0 || aduitList.length === 0) {
-      dispatch(getAuditListNewsAction());
-    }
+    dispatch(getAuditListNewsAction());
     // eslint-disable-next-line
   }, []);
 

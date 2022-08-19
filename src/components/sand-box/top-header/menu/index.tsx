@@ -7,6 +7,9 @@ import { Menu } from "antd";
 import { loginOutAction } from "views/login/store/action";
 import { clearAllAction as clearUser } from "views/sand-box/user-manage/store/actions";
 import { clearAllAction as clearRole } from "views/sand-box/right-manage/role/store/actions";
+import { clearAllAction as clearAudit } from "views/sand-box/audit-manage/store/actions";
+import { clearAllAction as clearNews } from "views/sand-box/news-manage/store/actions";
+import { clearAllAction as clearPublish } from "views/sand-box/publish-manage/store/actions";
 
 const MenuCustom = memo((props: any) => {
   const dispatch = useDispatch();
@@ -18,6 +21,9 @@ const MenuCustom = memo((props: any) => {
       dispatch(loginOutAction());
       dispatch(clearUser());
       dispatch(clearRole());
+      dispatch(clearAudit());
+      dispatch(clearNews());
+      dispatch(clearPublish());
     }
   };
   return (

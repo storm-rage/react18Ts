@@ -92,7 +92,6 @@ const RoleLise = memo(() => {
 
   useEffect(() => {
     if (role.size === 0 || role.length === 0) {
-      console.log("发送");
       dispatch(getRolesAction());
     }
     // eslint-disable-next-line

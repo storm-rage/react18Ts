@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, Suspense } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { Layout, Spin } from "antd";
@@ -6,6 +6,7 @@ import { Layout, Spin } from "antd";
 import { SandBoxWrapper } from "./style";
 import SideMenu from "components/sand-box/side-menu";
 import TopHeader from "components/sand-box/top-header";
+import Loading from "views/loading";
 
 const { Content } = Layout;
 
@@ -36,9 +37,11 @@ const SandBox = memo(() => {
               overflow: "auto",
             }}
           >
-            <Spin size="large" spinning={isLoading}>
-              <Outlet />
-            </Spin>
+            <Suspense fallback={<Loading />}>
+              <Spin size="large" spinning={isLoading}>
+                <Outlet />
+              </Spin>
+            </Suspense>
           </Content>
         </Layout>
       </Layout>

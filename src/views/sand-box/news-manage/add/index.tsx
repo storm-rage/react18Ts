@@ -197,9 +197,7 @@ const NewsAdd = memo((props: TProps) => {
       <div className="steps-common steps-content">
         <DraftCustom getContent={getContent} defaultTxt={updates?.content} />
       </div>
-      <div className="steps-common steps-save">
-        <h2>save</h2>
-      </div>
+      <div className="steps-common steps-save"></div>
       <div className="steps-action">
         {current < 2 && (
           <Button type="primary" onClick={() => next()}>

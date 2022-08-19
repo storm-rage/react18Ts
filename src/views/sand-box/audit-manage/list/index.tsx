@@ -116,9 +116,7 @@ const AuditList = memo(() => {
   };
 
   useEffect(() => {
-    if (aduits.size === 0 || aduits.length === 0) {
-      dispatch(getAuditNewsAction());
-    }
+    dispatch(getAuditNewsAction());
     // eslint-disable-next-line
   }, []);
 

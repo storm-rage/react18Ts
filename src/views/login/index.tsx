@@ -1,7 +1,8 @@
 import React, { memo, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button, Form, Input, message } from "antd";
+import { Button, Form, Input, message, Tooltip } from "antd";
+import { HeartTwoTone } from "@ant-design/icons";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
@@ -28,6 +29,9 @@ const Login = memo(() => {
   }, []);
 
   const particlesLoaded = useCallback(async (container: any) => {}, []);
+  const handelStar = () => {
+    window.open("https://gitee.com/kang0916/react18-v6-cms", "_blank");
+  };
   return (
     <LoginWrapper>
       <Particles
@@ -62,11 +66,32 @@ const Login = memo(() => {
             <Input.Password />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ marginRight: "40px" }}
+            >
               登录
             </Button>
+            <Tooltip title="点个star吧">
+              <Button
+                shape="circle"
+                onClick={handelStar}
+                icon={
+                  <HeartTwoTone
+                    twoToneColor="#eb2f96"
+                    style={{ fontSize: "18px" }}
+                  />
+                }
+              />
+            </Tooltip>
           </Form.Item>
         </Form>
+        <div className="view-news">
+          <Link to={"/news"} style={{ fontSize: "14px" }}>
+            游客登录浏览新闻
+          </Link>
+        </div>
       </div>
     </LoginWrapper>
   );

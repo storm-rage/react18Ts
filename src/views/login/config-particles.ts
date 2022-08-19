@@ -364,7 +364,7 @@ export const options: any = {
     },
     position: {
       x: -5,
-      y: 55,
+      y: 25,
     },
   },
 };
