@@ -16,6 +16,14 @@ const defaulyRoutes: any = [
     element: lazyLoad("login"),
   },
   {
+    path: "/newsViews",
+    element: lazyLoad("news"),
+  },
+  {
+    path: "/newsViews/detailsNews/:id",
+    element: lazyLoad("news/detail"),
+  },
+  {
     path: "/",
     element: <Appraisal>{lazyLoad("sand-box")}</Appraisal>,
     children: [
@@ -28,14 +36,6 @@ const defaulyRoutes: any = [
         element: lazyLoad("sand-box/nopermission"),
       },
     ],
-  },
-  {
-    path: "/news",
-    element: lazyLoad("news"),
-  },
-  {
-    path: "/news/detail/:id",
-    element: lazyLoad("news/detail"),
   },
   {
     path: "*",
@@ -74,7 +74,7 @@ export const handelFilterRouter = (
 
 // 返回最终路由表
 export const handelEnd = (routes: any) => {
-  defaulyRoutes[1].children = [...routes, ...defaulyRoutes[1].children];
+  defaulyRoutes[3].children = [...routes, ...defaulyRoutes[3].children];
   return defaulyRoutes;
 };
 

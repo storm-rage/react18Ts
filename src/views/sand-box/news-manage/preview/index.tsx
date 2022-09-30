@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { HeartTwoTone } from "@ant-design/icons";
 import moment from "moment";
 import { getPreview } from "services/news-manage";
-import { patchStarNews } from "services/news";
+import { patchStarNewsAdd } from "services/news";
 
 interface TProps {
   id?: number;
@@ -22,7 +22,7 @@ const NewsPreview = memo((props: TProps) => {
       getPreview(id).then((res: any) => {
         if (props.type) {
           setnewsInfo({ ...res, view: res.view + 1 });
-          patchStarNews(props.id as number, { view: res.view + 1 });
+          patchStarNewsAdd(Number(id), { view: res.view + 1 });
         } else {
           setnewsInfo(res);
         }
@@ -85,8 +85,10 @@ const NewsPreview = memo((props: TProps) => {
       ...newsInfo,
       star: newsInfo.star + 1,
     });
-    patchStarNews(props.id as number, {
+    patchStarNewsAdd(id, {
       star: newsInfo.star + 1,
+    }).then((res) => {
+      console.log(res);
     });
   };
 

@@ -6,11 +6,10 @@ export function getAllNews() {
   });
 }
 
-export function patchStarNews(id: number, data: any) {
+export function patchStarNewsAdd(id: number, data: any) {
   return request({
     url: `/news/${id}`,
     method: "patch",
     data,
   });
 }
-

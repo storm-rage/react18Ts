@@ -31,6 +31,14 @@ const routes: Array<Router> = [
     element: lazyLoad("login"),
   },
   {
+    path: "/newsViews",
+    element: lazyLoad("news"),
+  },
+  {
+    path: "/newsViews/detailsNews/:id",
+    element: lazyLoad("news/detail"),
+  },
+  {
     path: "/",
     element: <Appraisal>{lazyLoad("sand-box")}</Appraisal>,
     children: [
@@ -43,14 +51,6 @@ const routes: Array<Router> = [
         element: lazyLoad("sand-box/nopermission"),
       },
     ],
-  },
-  {
-    path: "/news",
-    element: lazyLoad("news"),
-  },
-  {
-    path: "/news/detail:id",
-    element: lazyLoad("news/detail"),
   },
   {
     path: "*",

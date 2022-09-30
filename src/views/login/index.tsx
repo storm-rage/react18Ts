@@ -88,7 +88,7 @@ const Login = memo(() => {
           </Form.Item>
         </Form>
         <div className="view-news">
-          <Link to={"/news"} style={{ fontSize: "14px" }}>
+          <Link to={"/newsViews"} style={{ fontSize: "14px" }}>
             游客登录浏览新闻
           </Link>
         </div>
