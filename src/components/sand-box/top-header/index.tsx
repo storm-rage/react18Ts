@@ -16,15 +16,17 @@ const TopHeader = memo((props: any) => {
   return (
     <TopHeaderWrapper>
       <Header className="site-layout-background" style={{ padding: "0 16px" }}>
-        {React.createElement(
+        {
+            React.createElement(
           props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
           {
-            className: "trigger",
-            onClick: () => props.collapsedBack(!props.collapsed),
-          }
-        )}
+                    className: "trigger",
+                    onClick: () => props.collapsedBack(!props.collapsed),
+                  }
+            )
+        }
         <div className="right-users">
-          <h3>欢迎回来{users.username}</h3>
+          <h3 style={{ marginRight: "10px"}}>欢迎回来，{users.username}</h3>
           <Dropdown overlay={<Menu roleName={users.role.roleName} />}>
             <Avatar
               size={40}

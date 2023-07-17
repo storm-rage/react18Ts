@@ -8,9 +8,9 @@ export const SildeMenuWrapper = styled.div`
         .logo{
             line-height: 32px;
             color:white;
-            background-color: rgba(255, 255, 255,0.3);
+            border-bottom: 1px solid rgba(255,255,255,.1);
             font-size: 18px;
-            margin: 10px;
+            padding: 10px;
             text-align: center;
         }
         .menus{

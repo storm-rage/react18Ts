@@ -55,7 +55,7 @@ const SideMenu = memo((props: any) => {
             className="logo"
             style={{ display: collapsed ? "none" : "block" }}
           >
-            全球新闻发布管理系统
+            全球新闻发布管理
           </div>
           <div className="menus">
             <Menu
