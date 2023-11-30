@@ -39,6 +39,7 @@
 >  npm install -g json-serve  
 >  注意下面指令运行的路径！当前db.json目录下运行！  
 > json-server --watch .\db.json --port 5000
+> 登录账户admin 123456
 
 
 下载运行项目
