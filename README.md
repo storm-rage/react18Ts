@@ -35,7 +35,7 @@
 ## 项目运行
  项目需要配合本地服务器json-server来使用  
  **db.json 在项目的public文件夹内！**  
- 下载json-server
+ 下载json-server,在public目录下执行以下命令，并启动json-server
 >  npm install -g json-serve  
 >  注意下面指令运行的路径！当前db.json目录下运行！  
 > json-server --watch .\db.json --port 5000
